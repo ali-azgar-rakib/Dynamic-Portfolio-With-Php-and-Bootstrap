@@ -20,9 +20,72 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works");
                             <div class="col-6 m-auto">
                                 <div class="card-box">
 
-																			<div class="card text-dark mb-3" ">
-																		  <div class="card-header bg-success text-center display-4">Best Works</div>
-																		  <div class="card-body">
+
+																	<!-- card start -->
+                                	<div class="card mb-3" >
+																	  <div class="card-header bg-success text-center"><h2>My Best Works</h2></div>
+
+																	  <!-- card body start -->
+																	  <div class="card-body">
+
+																			<!-- content start -->
+
+
+																			<!-- data add message alert  -->
+
+																		  	<?php if(isset($_SESSION['best_works_success'])){ ?>
+																						
+																						<div class="alert alert-success alert-dismissible fade show" role="alert">
+																					  <strong><?=$_SESSION['best_works_success']?></strong>
+																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+																					    <span aria-hidden="true">&times;</span>
+																					  </button>
+																					</div>
+
+
+																		  	<?php }
+																		  	unset($_SESSION['best_works_success']);
+																		  	?>
+
+																		  	<!-- aleart end -->
+
+																				<!-- data delete message alert  -->
+
+																		  	<?php if(isset($_SESSION['best_works_delete'])){ ?>
+																						
+																						<div class="alert alert-success alert-dismissible fade show" role="alert">
+																					  <strong><?=$_SESSION['best_works_delete']?></strong>
+																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+																					    <span aria-hidden="true">&times;</span>
+																					  </button>
+																					</div>
+
+
+																		  	<?php }
+																		  	unset($_SESSION['best_works_delete']);
+																		  	?>
+
+																		  	<!-- aleart end -->
+
+																		  	<!-- data delete message alert  -->
+
+																		  	<?php if(isset($_SESSION['best_works_update_success'])){ ?>
+																						
+																						<div class="alert alert-success alert-dismissible fade show" role="alert">
+																					  <strong><?=$_SESSION['best_works_update_success']?></strong>
+																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+																					    <span aria-hidden="true">&times;</span>
+																					  </button>
+																					</div>
+
+
+																		  	<?php }
+																		  	unset($_SESSION['best_works_update_success']);
+																		  	?>
+
+																		  	<!-- aleart end -->
+
+
 
 																				<table class="table table-bordered text-center">
 																					<thead>
@@ -45,6 +108,13 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works");
 																							<td><?=$result['works_name']?></td>
 																							<td><?=$result['catagory']?></td>
 																							<td><img src="image/my_best_works/<?=$result['photo']?>" alt="" style="width: 50px;"></td>
+
+																							<td>
+																								<div class="btn-group">
+																									<a class="btn btn-sm btn-warning" href="best_works_update.php?id=<?=base64_encode($result['id'])?>">Update</a>
+																									<a class="btn btn-sm btn-danger" href="best_works_delete.php?id=<?=base64_encode($result['id'])?>">Delete</a>
+																								</div>
+																							</td>
 																						</tr>
 
 																						<!-- end foreach -->
@@ -55,13 +125,31 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works");
 																				</table>
 																				<a class="btn btn-block btn-success" href="my_best_works.php">Add Another Works</a>
 
-																		  </div>
-																			</div>
+																		  
+
+																			<!-- content end -->
+
+
+																	  </div>
+																	  <!-- card body end -->
+
+																	</div>
+																	<!-- card end -->
+
+																			
 
 
                                 </div>
+                                <!-- card box end -->
+
                             </div>
+                            <!-- main col end -->
+
+
                         </div>
+												<!-- main row end -->
+
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->

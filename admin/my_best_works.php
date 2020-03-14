@@ -1,40 +1,76 @@
 <?php 
 require_once "user_auth.php";
+ob_start();
 $title="Add my best works";
 require_once "header.php";
 require_once "db.php";
 
 if(isset($_POST['submit'])){
-	$work_name = $_POST['work_name'];
+	$work_name     = $_POST['work_name'];
 	$work_catagory = $_POST['project_catagory'];
-	$photo     = $_FILES['photo']['name'];
-	$photo_ext = explode('.', $photo);
-	$photo_name = $work_name.".".end($photo_ext);
+	$photo         = $_FILES['photo']['name'];
+	$photo_ext_arr = explode('.', $photo);
+	$photo_ext     = end($photo_ext_arr);
+	
 
-	if(!empty($work_name) &&!empty($work_catagory) && !empty($photo_name)){
-		$work_insert = $dbcon->query("INSERT INTO my_best_works (works_name,catagory,photo) VALUES('$work_name','$work_catagory','$photo_name')");
+	if(!empty($work_name) && !empty($work_catagory) ){
+		$work_insert = $dbcon->query("INSERT INTO my_best_works (works_name,catagory) VALUES('$work_name','$work_catagory')");
 		if($work_insert){
-			move_uploaded_file($_FILES['photo']['tmp_name'], 'image/my_best_works/'.$photo_name);
-			echo "done";
-		} 
-	}
 
+			if(!empty($photo)){
+				// if not empty
+				if($_FILES['photo']['size']<5000000){
+					// if photo in specific size
+					$accepted_extension_list = ['png','jpg','jpeg'];
+					if( in_array(strtolower($photo_ext),$accepted_extension_list) ){
+
+						$last_id = $dbcon->insert_id;
+						$photo_name    = $last_id.".".$photo_ext;
+						// upload photo
+						$update_photo =$dbcon->query("UPDATE my_best_works SET photo='$photo_name' WHERE id=$last_id");
+
+
+						move_uploaded_file($_FILES['photo']['tmp_name'], 'image/my_best_works/'.$photo_name);
+						$_SESSION['best_works_success'] = "Added Successfully!";
+						header('location: best_works.php');
+						ob_end_flush();
+					}
+					// photo extension check end
+				} 
+				// file size check end
+			}else{
+				// data add without photo
+				$_SESSION['best_works_success'] = "Added Successfully!";
+				header('location: best_works.php');
+				ob_end_flush();			
+			} 
+
+				
+		}
+		// if work end 
+	} 
+	// if empty check
 }
-
-
+// isset end
 
 
 ?>
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+	          <div class="row">
+	                      <div class="col-8 m-auto">
+	                          <div class="card-box">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">My best work add form</h4>
+
+															<!-- card start -->
+	                          	<div class="card mb-3" >
+															  <div class="card-header bg-success text-center"><h2>Add My Best Works</h2></div>
+
+															  <!-- card body start -->
+															  <div class="card-body">
+
+																	<!-- content start -->
 
 																			<form action="" method="post" enctype="multipart/form-data">
 																				<div class="form-group">
@@ -57,13 +93,33 @@ if(isset($_POST['submit'])){
 
 																			</form>
 
+																<!-- content end -->
+
+
+																	  </div>
+																	  <!-- card body end -->
+
+																	</div>
+																	<!-- card end -->
+
+																			
+
 
                                 </div>
+                                <!-- card box end -->
+
                             </div>
+                            <!-- main col end -->
+
+
                         </div>
+												<!-- main row end -->
+
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
+
 
 
 

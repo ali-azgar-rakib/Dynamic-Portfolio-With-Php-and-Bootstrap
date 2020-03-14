@@ -4,6 +4,7 @@ $title="About me";
 require_once "header.php";
 require_once "db.php";
 
+
 $about_me = $dbcon->query("SELECT * FROM about_me");
 $result = $about_me -> fetch_assoc();
 $_SESSION['id'] = $result['id'];
@@ -22,16 +23,16 @@ $_SESSION['id'] = $result['id'];
                                 <div class="card-box">
 
 																			<div class="card text-dark mb-3" ">
-																		  <div class="card-header bg-success">Header</div>
+																		  <div class="card-header bg-success"><h2>About Me</h2></div>
 																		  <div class="card-body">
 
 
 																				<!-- item add alert  -->
 
-																		  	<?php if(isset($_SESSION['about_me_success'])){ ?>
+																		  	<?php if(isset($_SESSION['about_data_success'])){ ?>
 																						
 																						<div class="alert alert-success alert-dismissible fade show" role="alert">
-																					  <strong><?=$_SESSION['about_me_success']?></strong>
+																					  <strong><?=$_SESSION['about_data_success']?></strong>
 																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 																					    <span aria-hidden="true">&times;</span>
 																					  </button>
@@ -39,7 +40,7 @@ $_SESSION['id'] = $result['id'];
 
 
 																		  	<?php }
-																		  	unset($_SESSION['about_me_success']);
+																		  	unset($_SESSION['about_data_success']);
 																		  	?>
 
 																		  	<!-- aleart end -->
@@ -64,6 +65,27 @@ $_SESSION['id'] = $result['id'];
 																					<td>Details</td>
 																					<td><?=$result['details']?></td>
 																					</tr>
+
+																					<tr>
+																					<td>Facebook Link</td>
+																					<td><?=$result['fb_link']?></td>
+																					</tr>
+
+																					<tr>
+																					<td>Github Link</td>
+																					<td><?=$result['github_link']?></td>
+																					</tr>
+
+																					<tr>
+																					<td>Twitter Link</td>
+																					<td><?=$result['twitter_link']?></td>
+																					</tr>
+
+																					<tr>
+																					<td>Instra Link</td>
+																					<td><?=$result['instra_link']?></td>
+																					</tr>
+
 
 																				</table>
 																				<a class="btn btn-block btn-success" href="about_me.php">Change</a>

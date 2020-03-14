@@ -11,12 +11,13 @@ $service_from_db = $dbcon->query("SELECT * FROM services WHERE id=$id");
 $service_data = $service_from_db->fetch_assoc();
 
 if(isset($_POST['submit'])){
+	$icon         = $_POST['icon'];
 	$title        = $_POST['title'];
 	$some_text    = $_POST['some_text'];
  	
 
 	if(!empty($title) &&!empty($some_text)){
-		$service_update = $dbcon->query("UPDATE services SET title='$title',some_text='$some_text' WHERE id=$id");
+		$service_update = $dbcon->query("UPDATE services SET icon='$icon',title='$title',some_text='$some_text' WHERE id=$id");
 		if($service_update){
 			$_SESSION['service_update'] = "Update Successfully!";
 			header('location: services.php');
@@ -44,6 +45,12 @@ if(isset($_POST['submit'])){
                                     <h4 class="header-title mb-4">Add Service</h4>
 
 																			<form action="" method="post" >
+
+																				<div class="form-group">
+																					<label for="project_name">Service Icon</label>
+																					<input type="text" class="form-control" name="icon" value="<?=$service_data['icon']?>">
+																				</div>
+
 																				<div class="form-group">
 																					<label for="project_name">Service Name</label>
 																					<input type="text" class="form-control" name="title" value="<?=$service_data['title']?>">

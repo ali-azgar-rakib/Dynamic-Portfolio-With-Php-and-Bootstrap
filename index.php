@@ -6,7 +6,7 @@ require_once "admin/db.php";
 <!doctype html>
 <html class="no-js" lang="en">
 
-<!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:27:43 GMT -->
+
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -89,26 +89,48 @@ require_once "admin/db.php";
                         <img src="front_end_assets/img/logo/logo.png" alt="" />
                     </a>
                 </div>
+
+
+
+                 <!--side view and contact information area  -->
+
+                <?php 
+                  $information_query = $dbcon->query("SELECT * FROM contact_information");
+                  $contact_information = $information_query->fetch_assoc();
+                ?>
+
+                <!-- end contact information -->
+
+                <!-- about me query start -->
+
+                <?php 
+                  $about_me_query = $dbcon->query("SELECT * FROM about_me");
+                  $about_me = $about_me_query -> fetch_assoc();
+
+                ?>
+
+                <!-- about me query end  -->
+
+
                 <div class="side-info mb-30">
                     <div class="contact-list mb-30">
                         <h4>Office Address</h4>
-                        <p>123/A, Miranda City Likaoli
-                            Prikano, Dope</p>
+                        <p><?=$contact_information['address']?></p>
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Phone Number</h4>
-                        <p>+0989 7876 9865 9</p>
+                        <p><?=$contact_information['phone']?></p>
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Email Address</h4>
-                        <p>info@example.com</p>
+                        <p><?=$contact_information['email']?></p>
                     </div>
                 </div>
                 <div class="social-icon-right mt-20">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="<?=$about_me['fb_link']?>"><i class="fab fa-facebook-f"></i></a>
+                    <a href="<?=$about_me['twitter_link']?>"><i class="fab fa-twitter"></i></a>
+                    <a href="<?=$about_me['github_link']?>"><i class="fab fa-github"></i></a>
+                    <a href="<?=$about_me['instra_link']?>"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="offcanvas-overly"></div>
@@ -121,11 +143,7 @@ require_once "admin/db.php";
               
             <!-- php code for about me -->
 
-            <?php 
-              $about_me_query = $dbcon->query("SELECT * FROM about_me");
-              $about_me = $about_me_query -> fetch_assoc();
-
-            ?>
+           <!-- you can find about me query  in side view part -->
 
             <!-- banner-area -->
             <section id="home" class="banner-area banner-bg fix">
@@ -138,10 +156,10 @@ require_once "admin/db.php";
                                 <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$about_me['intro']?></p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                        <li><a href="<?=$about_me['fb_link']?>"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="<?=$about_me['twitter_link']?>"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="<?=$about_me['instra_link']?>"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="<?=$about_me['github_link']?>"><i class="fab fa-github"></i></a></li>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
@@ -223,7 +241,7 @@ require_once "admin/db.php";
 
             <?php
 
-            $services_query = $dbcon->query("SELECT * FROM services");
+            $services_query = $dbcon->query("SELECT * FROM services ORDER BY id DESC LIMIT 6");
 
             ?>
 
@@ -245,26 +263,20 @@ require_once "admin/db.php";
               <!-- foreach code -->
 
               <?php
-              $id = 1;
                foreach ($services_query as $service) {
-                if($id>6){
-                  break;
-                }else{
-                  $id++
+                
               ?>
 
 						<div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                                <i class="fab fa-react"></i>
+                                <i class="<?=$service['icon']?>"></i>
 								<h3><?=$service['title']?></h3>
 								<p><?=$service['some_text']?></p>
 							</div>
 						</div>
 
             <!-- foreach end -->
-          <?php
-            }
-           } ?>
+          <?php } ?>
 						
 					</div>
 				</div>
@@ -288,7 +300,7 @@ require_once "admin/db.php";
 
             <!-- php code for my best works -->
                     <?php
-                      $my_best_works_query = $dbcon->query("SELECT * FROM my_best_works");
+                      $my_best_works_query = $dbcon->query("SELECT * FROM my_best_works ORDER BY id DESC LIMIT 6");
                       foreach($my_best_works_query as $row){
                     ?>
 
@@ -318,7 +330,7 @@ require_once "admin/db.php";
 
           <!-- php code for fact area -->
           <?php 
-            $fact_query = $dbcon -> query("SELECT * FROM fact_informations");
+            $fact_query = $dbcon -> query("SELECT * FROM stastistics");
             $fact_information = $fact_query->fetch_assoc();
 
           ?>
@@ -368,7 +380,7 @@ require_once "admin/db.php";
                                         <i class="flaticon-woman"></i>
                                     </div>
                                     <div class="fact-content">
-                                        <h2><span class="count"><?=$fact_information['clients']?></span>K</h2>
+                                        <h2><span class="count"><?=$fact_information['clients']?></span></h2>
                                         <span>Our Clients</span>
                                     </div>
                                 </div>
@@ -410,7 +422,7 @@ require_once "admin/db.php";
 
                                 <div class="single-testimonial text-center">
                                     <div class="testi-avatar">
-                                        <img style="width:50px;" src="admin/image/customers/<?=$row['photo']?>" alt="img">
+                                        <img style="width:100px;height: 100px;border-radius: 50%;" src="admin/image/customers/<?=$row['photo']?>" alt="img">
                                     </div>
                                     <div class="testi-content">
                                         <h4><span>“</span> <?=$row['customer_comment']?><span>”</span></h4>
@@ -434,7 +446,7 @@ require_once "admin/db.php";
             <!-- brand-area -->
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
-                    <div class="row brand-active">
+                    <div class="row">
                         
                       <!-- php code for add logo -->
                       <?php 
@@ -446,8 +458,8 @@ require_once "admin/db.php";
 
 
                         <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="admin/image/logo/<?=$logo['photo']?>" alt="img" style="width: 125px;">
+                            <div class="single-brand ">
+                                <img  src="admin/image/logo/<?=$logo['photo']?>" alt="img" width='100'>
                             </div>
                         </div>
                       <?php } ?>
@@ -462,13 +474,9 @@ require_once "admin/db.php";
                 <div class="container">
                     <div class="row align-items-center">
 
-                        <!--contact information area  -->
-
-                        <!-- php code -->
-                        <?php 
-                          $information_query = $dbcon->query("SELECT * FROM contact_information");
-                          $contact_information = $information_query->fetch_assoc();
-                        ?>
+                       
+               <!-- contact information query in side view part -->
+                        
 
                         <div class="col-lg-6">
                             <div class="section-title mb-20">
@@ -543,7 +551,7 @@ require_once "admin/db.php";
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="copyright-text text-center">
-                                <p>Copyright© <span>Kufa</span> | All Rights Reserved</p>
+                                <p>Copyright© <span>Ali Azgar Rakib</span> | All Rights Reserved</p>
                             </div>
                         </div>
                     </div>
@@ -575,5 +583,4 @@ require_once "admin/db.php";
         <script src="front_end_assets/js/main.js"></script>
     </body>
 
-<!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:28:17 GMT -->
 </html>

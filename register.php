@@ -7,7 +7,7 @@ require_once "user_valid.php";
 <html lang="en">
 
     
-<!-- Mirrored from coderthemes.com/highdmin/vertical/page-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Apr 2019 06:52:57 GMT -->
+
 <head>
         <meta charset="utf-8" />
         <title>Regestration</title>
@@ -33,7 +33,7 @@ require_once "user_valid.php";
     <body class="account-pages">
 
         <!-- Begin page -->
-        <!-- <div class="accountbg" style="background: url('admin/assets/images/bg-2.jpg');background-size: cover;background-position: center;"></div> -->
+        <div class="accountbg" style="background: url('admin/assets/images/bg-2.jpg');background-size: cover;background-position: center;"></div>
 
 
         <div class="wrapper-page account-page-full">
@@ -156,10 +156,10 @@ require_once "user_valid.php";
                                         
                                         <input class="form-control" type="file"  placeholder="attached photo" name="photo" >
 
-                                        <!-- confirm password error -->
+                                        <!-- photo error -->
                                         <label style="color:red;font-style:italic;" >
-                                          <?php if(isset($input_error['photo'])){
-                                            echo $input_error['photo'];
+                                          <?php if(isset($photo_error)){
+                                            echo $photo_error;
                                           } ?>
                                         </label>
 
@@ -199,10 +199,6 @@ require_once "user_valid.php";
                     </div>
 
                 </div>
-            </div>
-
-            <div class="m-t-40 text-center">
-                <p class="account-copyright">2018 © Highdmin. - Coderthemes.com</p>
             </div>
 
         </div>

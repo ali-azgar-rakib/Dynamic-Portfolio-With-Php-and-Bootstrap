@@ -1,5 +1,6 @@
 <?php 
 require_once "user_auth.php";
+ob_start();
 $title="Add Testimonials";
 require_once "header.php";
 require_once "db.php";
@@ -10,13 +11,17 @@ if(isset($_POST['submit'])){
 	$customer_comment = $_POST['customer_comment'];
 	$photo     = $_FILES['photo']['name'];
 	$photo_ext = explode('.', $photo);
-	$photo_name = $customer_name.".".end($photo_ext);
 
-	if(!empty($customer_name) &&!empty($customer_desegnation) && !empty($customer_desegnation) && !empty($photo_name)){
-		$work_insert = $dbcon->query("INSERT INTO testimonials (customer_name,customer_desegnation,customer_comment,photo) VALUES('$customer_name','$customer_desegnation','$customer_comment','$photo_name')");
+	if(!empty($customer_name) &&!empty($customer_desegnation) && !empty($customer_desegnation) && !empty($photo)){
+		$work_insert = $dbcon->query("INSERT INTO testimonials (customer_name,customer_desegnation,customer_comment) VALUES('$customer_name','$customer_desegnation','$customer_comment')");
 		if($work_insert){
+
+			$last_id = $dbcon->insert_id;
+			$photo_name = $last_id.".".end($photo_ext);
+			$dbcon->query("UPDATE testimonials SET photo='$photo_name' WHERE id=$last_id");
 			move_uploaded_file($_FILES['photo']['tmp_name'], 'image/customers/'.$photo_name);
-			echo "done";
+			header('location: all_testimonials.php');
+			ob_end_flush();
 		} 
 	}
 

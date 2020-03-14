@@ -24,6 +24,26 @@ $services_query = $dbcon->query("SELECT * FROM services");
 																		  <div class="card-header bg-success text-center display-4">Services</div>
 																		  <div class="card-body">
 
+
+
+																		  	<!-- service add alert  -->
+
+																		  	<?php if(isset($_SESSION['service_add'])){ ?>
+																						
+																						<div class="alert alert-success alert-dismissible fade show" role="alert">
+																					  <strong><?=$_SESSION['service_add']?></strong>
+																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+																					    <span aria-hidden="true">&times;</span>
+																					  </button>
+																					</div>
+
+
+																		  	<?php }
+																		  	unset($_SESSION['service_add']);
+																		  	?>
+
+																		  	<!-- aleart end -->
+
 																				<!-- update alert  -->
 
 																		  	<?php if(isset($_SESSION['service_update'])){ ?>
@@ -66,6 +86,7 @@ $services_query = $dbcon->query("SELECT * FROM services");
 																					<thead>
 																						<tr>
 																							<td>Serial</td>
+																							<td>Icon</td>
 																							<td>Service Title</td>
 																							<td>Service Details</td>
 																							<td>Action</td>
@@ -83,6 +104,7 @@ $services_query = $dbcon->query("SELECT * FROM services");
 
 																						<tr>
 																							<td><?=$serial++?></td>
+																							<td><i style="font-size: 28px;" class="<?=$result['icon']?>"></i></td>
 																							<td><?=$result['title']?></td>
 																							<td><?=$result['some_text']?></td>
 																							<td>

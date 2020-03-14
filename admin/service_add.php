@@ -1,23 +1,27 @@
 <?php 
 require_once "user_auth.php";
+ob_start();
 $title="Add Services";
 require_once "header.php";
 require_once "db.php";
 
 if(isset($_POST['submit'])){
+	$icon         = $_POST['icon'];
 	$title        = $_POST['title'];
 	$some_text    = $_POST['some_text'];
  	
 
-	if(!empty($title) &&!empty($some_text)){
-		$work_insert = $dbcon->query("INSERT INTO services(title,some_text) VALUES('$title','$some_text')");
-		if($work_insert){
-			echo "done";
+	if(!empty($title) && !empty($some_text)){
+		$query = "INSERT INTO services (icon,title,some_text) VALUES('$icon','$title','$some_text')";
+			$service_insert = $dbcon->query($query);
+			$_SESSION['service_add'] = "Add successfully!";
+			header("location: services.php");
+			ob_end_flush();		
 		}
 		
 	}
 
-}
+
 
 
 
@@ -38,6 +42,11 @@ if(isset($_POST['submit'])){
 																				<div class="form-group">
 																					<label for="project_name">Service Name</label>
 																					<input type="text" class="form-control" name="title">
+																				</div>
+
+																				<div class="form-group">
+																					<label for="project_name">Service Icon</label>
+																					<input type="text" class="form-control" name="icon">
 																				</div>
 
 																				<div class="form-group">

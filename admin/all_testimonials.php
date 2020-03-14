@@ -17,12 +17,31 @@ $testimonial = $dbcon->query("SELECT * FROM testimonials");
                     <div class="container-fluid">
 
                         <div class="row">
-                            <div class="col-8 m-auto">
+                            <div class="col-10 m-auto">
                                 <div class="card-box">
 
 																			<div class="card text-dark mb-3" >
 																		  <div class="card-header bg-success text-center display-4">All Testimonials</div>
 																		  <div class="card-body">
+
+
+																		  	<!-- update message alert  -->
+
+																		  	<?php if(isset($_SESSION['testimonial_update_success'])){ ?>
+																						
+																						<div class="alert alert-success alert-dismissible fade show" role="alert">
+																					  <strong><?=$_SESSION['testimonial_update_success']?></strong>
+																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+																					    <span aria-hidden="true">&times;</span>
+																					  </button>
+																					</div>
+
+
+																		  	<?php }
+																		  	unset($_SESSION['testimonial_update_success']);
+																		  	?>
+
+																		  	<!-- aleart end -->
 
 
 
