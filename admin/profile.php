@@ -15,13 +15,6 @@ $id = $row['id'];
 ?>
 
 
-<!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
-
-                        <div class="row">
-                            <div class="col-12 m-auto">
-                                <div class="card-box">
 
                                 	<div class="row">
                                 		<!-- content row  -->
@@ -29,37 +22,38 @@ $id = $row['id'];
                                 		<div class="col-6">
                                 			<!-- first col -->
 
-																				<h4 class="header-title mb-4">Account Overview</h4>
-
-
-
+																		<div class="card text-dark mb-3" >
+																		  <div class="card-header bg-success text-center"><h2>Education</h2></div>
+																		  <div class="card-body">
 																			<!-- table start here -->
-																			<table class="table table-bordered table-striped text-center mx-auto" >
-																					<tr>
-																						<td colspan="2"><img src="image/users/<?=$row['photo']?>" alt="" width="100" ></td>
-																					</tr>
+																				<table class="table table-bordered table-striped text-center mx-auto" >
+																						<tr>
+																							<td colspan="2"><img src="image/users/<?=$row['photo']?>" alt="" width="100" ></td>
+																						</tr>
 
-																					<tr>
-																						<td>Name</td>
-																						<td><?=$row['fname']?></td>
-																					</tr>
+																						<tr>
+																							<td>Name</td>
+																							<td><?=$row['fname']?></td>
+																						</tr>
 
-																					<tr>
-																						<td>Email</td>
-																						<td><?=$row['email']?></td>
-																					</tr>
+																						<tr>
+																							<td>Email</td>
+																							<td><?=$row['email']?></td>
+																						</tr>
 
-																					<tr>
-																						<td>Status</td>
-																						<td><span class="bg-success p-2">Active</span></td>
-																					</tr>
-																					
-																			</table>
+																						<tr>
+																							<td>Status</td>
+																							<td><span class="bg-success p-2">Active</span></td>
+																						</tr>
+																						
+																				</table>
 
-																			<a class="btn btn-block btn-success" href="change_password.php">Change Password</a>
+																				<a class="btn btn-block btn-success" href="change_password.php">Change Password</a>
 
 																			
                                 		</div>
+                                	</div>
+                                </div>
                                 		<!-- first col end -->
 
                                 		<!-- photo col start -->
@@ -145,7 +139,7 @@ $id = $row['id'];
 
 																				<tr> 
 																					<td>
-																						<img class="mt-0 mb-2" src="image/users/<?=$row['photo']?>" alt="profile image" width='250'>
+																						<img class="mt-0 mb-2" src="image/users/<?=$row['photo']?>" alt="profile image" width='200'>
 																					</td>	
 																				</tr>
 
@@ -155,10 +149,8 @@ $id = $row['id'];
 
 				                            	<form action="profile_img_change.php?id=<?=base64_encode($id)?>" enctype="multipart/form-data" method="post">
 				                            		
-																				<div class="form-group">
-																					<input class="form-control" type="file" name="photo">
+																					<input  type="file" name="photo" class="form-control">
 																					<label for="">Upload photo</label>
-																				</div>
 
 																				<input class="btn btn-block btn-success" type="submit" name="photo_submit" value="Change Photo">
 
@@ -170,25 +162,6 @@ $id = $row['id'];
                                 	</div>
                                 	<!-- divider row end -->
                                     
-
-
-
-
-
-                                </div>
-                                <!-- card box end -->
-
-                            </div>
-                            <!-- main col end -->
-
-                        </div>
-													<!-- main row end -->
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-
 
 
 <!-- ============ footer content =============== -->

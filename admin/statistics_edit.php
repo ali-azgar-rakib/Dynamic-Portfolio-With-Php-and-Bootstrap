@@ -1,7 +1,7 @@
 <?php 
 require_once "user_auth.php";
 ob_start();
-$title="Add Fact Contact Information";
+$title="Update Statistics";
 require_once "header.php";
 require_once "db.php";
 
@@ -32,49 +32,40 @@ if(isset($_POST['submit'])){
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+	<div class="card text-dark mb-3" >
+		<div class="card-header bg-success text-center"><h2>Update Statistics</h2></div>
+			<div class="card-body">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Information</h4>
+						<form action="" method="post" >
+							<div class="form-group">
+								<label for="project_name">Feature Item</label>
+								<input type="text" class="form-control" name="feature_item" value="<?=$data_from_db['feature_item']?>">
+							</div>
 
-																			<form action="" method="post" >
-																				<div class="form-group">
-																					<label for="project_name">Feature Item</label>
-																					<input type="text" class="form-control" name="feature_item" value="<?=$data_from_db['feature_item']?>">
-																				</div>
+							<div class="form-group">
+								<label for="project_catagory">Active Products</label>
+								<input type="text" class="form-control" name="active_products" value="<?=$data_from_db['active_products']?>">
+							</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Active Products</label>
-																					<input type="text" class="form-control" name="active_products" value="<?=$data_from_db['active_products']?>">
-																				</div>
+							<div class="form-group">
+								<label for="project_catagory">Experience</label>
+								<input type="text" class="form-control" name="experience" value="<?=$data_from_db['experience']?>">
+							</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Experience</label>
-																					<input type="text" class="form-control" name="experience" value="<?=$data_from_db['experience']?>">
-																				</div>
+							<div class="form-group">
+								<label for="project_catagory">Clients</label>
+								<input type="text" class="form-control" name="clients" value="<?=$data_from_db['clients']?>">
+							</div>
+							
+							
+							<div class="form-group">
+								<input class="btn btn-block btn-success" type="submit" value="Update" name="submit">
+							</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Clients</label>
-																					<input type="text" class="form-control" name="clients" value="<?=$data_from_db['clients']?>">
-																				</div>
-																				
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Update" name="submit">
-																				</div>
+						</form>
+					</div>
+				</div>
 
-																			</form>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
 
 
 

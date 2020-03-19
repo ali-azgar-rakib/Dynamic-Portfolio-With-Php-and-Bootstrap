@@ -35,58 +35,49 @@ if(isset($_POST['submit'])){
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+	<div class="card text-dark mb-3" >
+	  <div class="card-header bg-success text-center"><h2>Contact Information</h2></div>
+	  	<div class="card-body">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Contact Information</h4>
+						<form action="" method="post" >
+							
+							<div class="form-group">
+								<label for="project_catagory">Office</label>
+								<input type="text" class="form-control" name="office" value="<?=$row['office']?>">
+							</div>
 
-																			<form action="" method="post" >
-																				<div class="form-group">
-																					<label for="project_name">Details</label>
-																					<input type="text" class="form-control" name="small_text" value="<?=$row['small_text']?>">
-																				</div>
+							<div class="form-group">
+								<label for="project_catagory">Address</label>
+								<input type="text" class="form-control" name="address" value="<?=$row['address']?>">
+							</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Office</label>
-																					<input type="text" class="form-control" name="office" value="<?=$row['office']?>">
-																				</div>
+							<div class="form-group">
+								<label for="project_catagory">Phone</label>
+								<input type="text" class="form-control" name="phone" value="<?=$row['phone']?>">
+							</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Address</label>
-																					<input type="text" class="form-control" name="address" value="<?=$row['address']?>">
-																				</div>
-
-																				<div class="form-group">
-																					<label for="project_catagory">Phone</label>
-																					<input type="text" class="form-control" name="phone" value="<?=$row['phone']?>">
-																				</div>
-
-																				<div class="form-group">
-																					<label for="project_catagory">Email</label>
-																					<input type="text" class="form-control" name="email" value="<?=$row['email']?>">
-																				</div>
-																				
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Update" name="submit">
-																				</div>
-
-																			</form>
+							<div class="form-group">
+								<label for="project_catagory">Email</label>
+								<input type="text" class="form-control" name="email" value="<?=$row['email']?>">
+							</div>
+							
+							<div class="form-group">
+								<label for="project_name">Details</label>
+								<textarea name="small_text" class="form-control"><?=$row['small_text']?></textarea>
+							</div>
+							
+							<div class="form-group">
+								<input class="btn btn-block btn-success" type="submit" value="Update" name="submit">
+							</div>
 
 
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
+						</form>
+					</div>
+				</div>
 
 
 
-
+                               
 <!-- ============ footer content =============== -->
 <?php 
     require_once "footer.php";

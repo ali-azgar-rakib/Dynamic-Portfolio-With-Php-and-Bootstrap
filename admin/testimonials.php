@@ -34,49 +34,41 @@ if(isset($_POST['submit'])){
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+	<div class="card text-dark mb-3" >
+		<div class="card-header bg-success text-center"><h2>Add Testimonial</h2></div>
+			<div class="card-body">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">My best work add form</h4>
+					<form action="" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="project_name">Customer Name</label>
+							<input type="text" class="form-control" name="customer_name">
+						</div>
 
-																			<form action="" method="post" enctype="multipart/form-data">
-																				<div class="form-group">
-																					<label for="project_name">Customer Name</label>
-																					<input type="text" class="form-control" name="customer_name">
-																				</div>
+						<div class="form-group">
+							<label for="project_catagory">Customer Desegnation</label>
+							<input type="text" class="form-control" name="customer_desegnation">
+						</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Customer Desegnation</label>
-																					<input type="text" class="form-control" name="customer_desegnation">
-																				</div>
+						<div class="form-group">
+							<label for="project_catagory">Customer Comments</label>
+							<textarea name="customer_comment" class="form-control"></textarea>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Customer Comments</label>
-																					<input type="text" class="form-control" name="customer_comment">
-																				</div>
+						</div>
 
 
-																				<div class="form-group">
-																					<input class="form-control" type="file" name="photo">
-																					<label for="">Upload photo</label>
-																				</div>
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Add Work" name="submit">
-																				</div>
+						<div class="form-group">
+							<input class="form-control" type="file" name="photo">
+							<label for="">Upload photo</label>
+						</div>
+						
+						<div class="form-group">
+							<input class="btn btn-block btn-success" type="submit" value="Add Work" name="submit">
+						</div>
 
-																			</form>
+					</form>
+				</div>
+			</div>
 
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
 
 
 

@@ -1,5 +1,6 @@
 <?php 
 require_once "user_auth.php";
+ob_start();
 $title="Add Logo";
 require_once "header.php";
 require_once "db.php";
@@ -14,7 +15,9 @@ if(isset($_POST['submit'])){
 		$work_insert = $dbcon->query("INSERT INTO logo (photo) VALUES('$photo_name')");
 		if($work_insert){
 			move_uploaded_file($_FILES['photo']['tmp_name'], 'image/logo/'.$photo_name);
-			echo "done";
+			$_SESSION['logo_add'] = "Added Successfully!";
+			header('location: logo.php');
+			ob_end_flush();
 		} 
 	}
 
@@ -26,35 +29,26 @@ if(isset($_POST['submit'])){
 ?>
 
 
-<!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+<div class="card text-dark mb-3">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Add Logo</h4>
+    <div class="card-header bg-success text-center"><h3>Upload logo</h3></div>
 
-																			<form action="" method="post" enctype="multipart/form-data">
-																				
-																				<div class="form-group">
-																					<input class="form-control" type="file" name="photo">
-																					<label for="">Upload photo</label>
-																				</div>
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Add" name="submit">
-																				</div>
+          <div class="card-body text-center">
 
-																			</form>
+							<form action="" method="post" enctype="multipart/form-data">
+								
+								<div class="form-group">
+									<label for="photo">Upload photo</label>
+									<input class="form-control mx-auto m-4" type="file" name="photo" name="photo" style="width: 50%;">
+								</div>
+								
+								<div class="form-group">
+									<input class="btn btn-block btn-success" type="submit" value="Add" name="submit">
+								</div>
 
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
+							</form>
+						</div>
+					</div>
 
 
 

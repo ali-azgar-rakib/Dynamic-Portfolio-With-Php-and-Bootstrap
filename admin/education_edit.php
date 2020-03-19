@@ -30,47 +30,36 @@ if(isset($_POST['submit'])){
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+ 	<div class="card text-dark mb-3" >
+	  <div class="card-header bg-success text-center "><h2>Add Degree</h2></div>
+	  <div class="card-body">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Add Degree</h4>
+			<form action="" method="post" >
+				<div class="form-group">
+					<label for="project_name">Degree Name</label>
+					<input type="text" class="form-control" name="degree_name">
+				</div>
 
-																			<form action="" method="post" >
-																				<div class="form-group">
-																					<label for="project_name">Degree Name</label>
-																					<input type="text" class="form-control" name="degree_name">
-																				</div>
+				<div class="form-group">
+					<label for="project_catagory">Year</label>
+					<input type="text" class="form-control" name="year">
+				</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Year</label>
-																					<input type="text" class="form-control" name="year">
-																				</div>
-
-																				<div class="form-group">
-																					<label for="project_catagory">Progressbar</label>
-																					<input type="text" class="form-control" name="progressbar">
-																				</div>
+				<div class="form-group">
+					<label for="project_catagory">Progressbar</label>
+					<input type="text" class="form-control" name="progressbar">
+				</div>
 
 
-																				
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Add" name="submit">
-																				</div>
+				
+				
+				<div class="form-group">
+					<input class="btn btn-block btn-success" type="submit" value="Add" name="submit">
+				</div>
 
-																			</form>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
+			</form>
+		</div>
+	</div>
 
 
 

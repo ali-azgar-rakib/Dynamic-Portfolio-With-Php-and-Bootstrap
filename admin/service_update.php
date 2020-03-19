@@ -1,7 +1,7 @@
 <?php 
 require_once "user_auth.php";
 ob_start();
-$title="Add Services";
+$title="Update Services";
 require_once "header.php";
 require_once "db.php";
 
@@ -33,53 +33,36 @@ if(isset($_POST['submit'])){
 
 
 ?>
+	<div class="card text-dark mb-3" >
+	  <div class="card-header bg-success text-center display-4">Update Service</div>
+	  	<div class="card-body">
+
+						<form action="" method="post" >
+
+							<div class="form-group">
+								<label for="project_name">Service Icon</label>
+								<input type="text" class="form-control" name="icon" value="<?=$service_data['icon']?>">
+							</div>
+
+							<div class="form-group">
+								<label for="project_name">Service Name</label>
+								<input type="text" class="form-control" name="title" value="<?=$service_data['title']?>">
+							</div>
+
+							<div class="form-group">
+								<label for="project_catagory">Add Details</label>
+								<textarea name="some_text" class="form-control" cols="100%" rows="10"><?=$service_data['some_text']?></textarea>
+							</div>
 
 
-<!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Add Service</h4>
+							<div class="form-group">
+								<input class="btn btn-block btn-success" type="submit" value="Update" name="submit">
+							</div>
 
-																			<form action="" method="post" >
-
-																				<div class="form-group">
-																					<label for="project_name">Service Icon</label>
-																					<input type="text" class="form-control" name="icon" value="<?=$service_data['icon']?>">
-																				</div>
-
-																				<div class="form-group">
-																					<label for="project_name">Service Name</label>
-																					<input type="text" class="form-control" name="title" value="<?=$service_data['title']?>">
-																				</div>
-
-																				<div class="form-group">
-																					<label for="project_catagory">Add Details</label>
-																					<input type="text" class="form-control" name="some_text" value="<?=$service_data['some_text']?>">
-																				</div>
-
-																				
-
-
-																				
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Update" name="submit">
-																				</div>
-
-																			</form>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
+						</form>
+				</div>
+		</div>
 
 
 

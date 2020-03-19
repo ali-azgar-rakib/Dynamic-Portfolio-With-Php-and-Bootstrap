@@ -11,112 +11,98 @@ $all_logo = $dbcon->query("SELECT * FROM logo");
 
 ?>
 
-
-<!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
-
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
 																	
-																	<!-- card start -->
-                                	<div class="card mb-3">
-																	  <div class="card-header text-center bg-success"> <h2>All logo</h2></div>
+						<!-- card start -->
+          	<div class="card mb-3">
+						  <div class="card-header text-center bg-success"> <h2>All logo</h2></div>
 
 
-																	  <!-- card content -->
-
-																			<!-- logo delete message alert  -->
-
-																		  	<?php if(isset($_SESSION['logo_delete'])){ ?>
-																						
-																						<div class="alert alert-success alert-dismissible fade show" role="alert">
-																					  <strong><?=$_SESSION['logo_delete']?></strong>
-																					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-																					    <span aria-hidden="true">&times;</span>
-																					  </button>
-																					</div>
+						  <!-- card content -->
 
 
-																		  	<?php }
-																		  	unset($_SESSION['logo_delete']);
-																		  	?>
+						  <!-- logo add message alert  -->
 
-																		  	<!-- aleart end -->
-
-
-
-																				<table class="table table-bordered text-center">
-																					<thead>
-																						<tr>
-																							<td>Logo</td>
-																							<td>Action</td>
-																						</tr>
-																					</thead>
-																					<tbody>
-
-																					<!-- php code -->
-																					<?php foreach ($all_logo as $result) {
-																						
-																					 ?>
+							  	<?php if(isset($_SESSION['logo_add'])){ ?>
+											
+											<div class="alert alert-success alert-dismissible fade show" role="alert">
+										  <strong><?=$_SESSION['logo_add']?></strong>
+										  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										    <span aria-hidden="true">&times;</span>
+										  </button>
+										</div>
 
 
-																						<tr>
-																						
-																							<td><img src="image/logo/<?=$result['photo']?>" alt="" style="width: 50px;"></td>
+							  	<?php }
+							  	unset($_SESSION['logo_add']);
+							  	?>
 
-																							<td>
-																								
-																									<a class="btn btn-sm btn-danger" href="logo_delete.php?id=<?=base64_encode($result['id'])?>">Delete</a>
-																							</td>
-																						</tr>
+							  	<!-- aleart end -->
 
-																						<!-- end foreach -->
-																					<?php } ?>
-																					</tbody>
-																					
+								<!-- logo delete message alert  -->
 
-																				</table>
-																				<a class="btn btn-block btn-success" href="add_logo.php">Add Another logo</a>
-
-																		  
-
-																			<!-- content end -->
+							  	<?php if(isset($_SESSION['logo_delete'])){ ?>
+											
+											<div class="alert alert-success alert-dismissible fade show" role="alert">
+										  <strong><?=$_SESSION['logo_delete']?></strong>
+										  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										    <span aria-hidden="true">&times;</span>
+										  </button>
+										</div>
 
 
-																	  <!-- card content end -->
+							  	<?php }
+							  	unset($_SESSION['logo_delete']);
+							  	?>
 
-																	  <!-- card body -->
-																	  <div class="card-body">
-																	    
-																	</div>
-																	<!-- card body end -->
-
-																</div>
-																<!-- card end -->
-
-				
-
-																			
+							  	<!-- aleart end -->
 
 
-                                </div>
-                                <!-- card box end -->
 
-                            </div>
-                            <!-- main col end -->
+									<table class="table table-bordered text-center">
+										<thead>
+											<tr>
+												<td>Logo</td>
+												<td>Action</td>
+											</tr>
+										</thead>
+										<tbody>
+
+										<!-- php code -->
+										<?php foreach ($all_logo as $result) {
+											
+										 ?>
 
 
-                        </div>
-												<!-- main row end -->
+											<tr>
+											
+												<td><img src="image/logo/<?=$result['photo']?>" alt="" style="width: 50px;"></td>
+
+												<td>
+														<a class="btn btn-sm btn-danger" href="logo_delete.php?id=<?=base64_encode($result['id'])?>">Delete</a>
+												</td>
+											</tr>
+
+											<!-- end foreach -->
+										<?php } ?>
+										</tbody>
+										
+
+									</table>
+								<a class="btn btn-block btn-success" href="add_logo.php">Add logo</a>
+
+								<!-- content end -->
 
 
-                    </div> <!-- container -->
+						  <!-- card content end -->
 
-                </div> <!-- content -->
+						  <!-- card body -->
+						  <div class="card-body">
+						    
+						</div>
+						<!-- card body end -->
 
-
+					</div>
+					<!-- card end -->
 
 
 <!-- ============ footer content =============== -->

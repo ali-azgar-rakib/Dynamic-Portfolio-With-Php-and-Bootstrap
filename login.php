@@ -43,8 +43,10 @@ require_once "login_val.php";
 
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
-                                <a href="index.php" class="text-success">
-                                    <span><img src="admin/assets/images/logo.png" alt="" height="26"></span>
+                                <a href="#" class="text-success">
+                                    <span>
+                                        <!-- logo here -->
+                                    </span>
                                 </a>
                             </h2>
 
@@ -139,7 +141,7 @@ require_once "login_val.php";
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright">2018 © Highdmin. - Coderthemes.com</p>
+                <p class="account-copyright"><?=date('Y')?> © Ali Azgar Rakib</p>
             </div>
 
         </div>
@@ -159,5 +161,4 @@ require_once "login_val.php";
 
     </body>
 
-<!-- Mirrored from coderthemes.com/highdmin/vertical/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Apr 2019 06:52:57 GMT -->
 </html>

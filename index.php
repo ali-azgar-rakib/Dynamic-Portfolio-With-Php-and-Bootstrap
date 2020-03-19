@@ -130,7 +130,7 @@ require_once "admin/db.php";
                     <a href="<?=$about_me['fb_link']?>"><i class="fab fa-facebook-f"></i></a>
                     <a href="<?=$about_me['twitter_link']?>"><i class="fab fa-twitter"></i></a>
                     <a href="<?=$about_me['github_link']?>"><i class="fab fa-github"></i></a>
-                    <a href="<?=$about_me['instra_link']?>"><i class="fab fa-instagram"></i></a>
+                    <a href="<?=$about_me['linkedin_link']?>"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="offcanvas-overly"></div>
@@ -158,7 +158,7 @@ require_once "admin/db.php";
                                     <ul>
                                         <li><a href="<?=$about_me['fb_link']?>"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="<?=$about_me['twitter_link']?>"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="<?=$about_me['instra_link']?>"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="<?=$about_me['linkedin_link']?>"><i class="fab fa-linkedin"></i></a></li>
                                         <li><a href="<?=$about_me['github_link']?>"><i class="fab fa-github"></i></a></li>
                                     </ul>
                                 </div>
@@ -245,9 +245,6 @@ require_once "admin/db.php";
 
             ?>
 
-
-
-
             <section id="service" class="services-area pt-120 pb-50">
 				<div class="container">
                     <div class="row justify-content-center">
@@ -307,7 +304,7 @@ require_once "admin/db.php";
                       <div class="col-lg-4 col-md-6 pitem">
                       <div class="speaker-box">
       								<div class="speaker-thumb">
-      									<img src="admin/image/my_best_works/<?=$row['photo']?>" alt="img">
+      									<img src="admin/image/my_best_works/<?=$row['photo']?>" alt="img" >
       								</div>
       								<div class="speaker-overlay">
       									<span><?=$row['catagory']?></span>
@@ -334,8 +331,6 @@ require_once "admin/db.php";
             $fact_information = $fact_query->fetch_assoc();
 
           ?>
-
-
 
             <section class="fact-area">
                 <div class="container">
@@ -400,8 +395,6 @@ require_once "admin/db.php";
               $testimonial_query = $dbcon->query("SELECT * FROM testimonials");
             ?>
 
-
-
             <section class="testimonial-area primary-bg pt-115 pb-115">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -446,11 +439,12 @@ require_once "admin/db.php";
             <!-- brand-area -->
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
-                    <div class="row">
+                    <div class="row brand-active">
                         
                       <!-- php code for add logo -->
                       <?php 
-                      $logo_query = $dbcon->query("SELECT * FROM logo");
+                      $logo_query = $dbcon->query("SELECT * FROM logo ORDER BY id DESC");
+                      if($logo_query->num_rows>= 6){
                       foreach ($logo_query as $logo) {
                         
                       
@@ -462,7 +456,12 @@ require_once "admin/db.php";
                                 <img  src="admin/image/logo/<?=$logo['photo']?>" alt="img" width='100'>
                             </div>
                         </div>
-                      <?php } ?>
+                      <?php 
+                  } 
+                } else{
+                    echo "Require six logo";
+                }
+                  ?>
                         
                     </div>
                 </div>

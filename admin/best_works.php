@@ -6,19 +6,8 @@ require_once "db.php";
 
 $all_works = $dbcon->query("SELECT * FROM my_best_works");
 
-
-
-
 ?>
 
-
-<!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
-
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
 
 
 																	<!-- card start -->
@@ -87,13 +76,13 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works");
 
 
 
-																				<table class="table table-bordered text-center">
+																				<table id="example" class="table table-bordered text-center">
 																					<thead>
 																						<tr>
-																							<td>Works Name</td>
-																							<td>Catagory</td>
-																							<td>Photo</td>
-																							<td>Action</td>
+																							<th>Works Name</th>
+																							<th>Catagory</th>
+																							<th>Photo</th>
+																							<th>Action</th>
 																						</tr>
 																					</thead>
 																					<tbody>
@@ -123,7 +112,7 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works");
 																					
 
 																				</table>
-																				<a class="btn btn-block btn-success" href="my_best_works.php">Add Another Works</a>
+																				<a class="btn btn-block btn-success mt-2" href="my_best_works.php">Add Another Works</a>
 
 																		  
 
@@ -135,26 +124,6 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works");
 
 																	</div>
 																	<!-- card end -->
-
-																			
-
-
-                                </div>
-                                <!-- card box end -->
-
-                            </div>
-                            <!-- main col end -->
-
-
-                        </div>
-												<!-- main row end -->
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-
 
 
 <!-- ============ footer content =============== -->

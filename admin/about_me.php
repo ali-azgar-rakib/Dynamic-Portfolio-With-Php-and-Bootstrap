@@ -12,13 +12,6 @@ $about_me_data = $data_from_db->fetch_assoc();
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
-
-                        <div class="row">
-                            <div class="col-12 m-auto">
-                                <div class="card-box">
-
 
 																			<!-- row for item divide -->
                                 	<div class="row">
@@ -59,8 +52,8 @@ $about_me_data = $data_from_db->fetch_assoc();
 
 
 																				<div class="form-group">
-																					<label for="project_catagory">Instra Link</label>
-																					<input type="text" class="form-control" name="instra_link" value="<?=$about_me_data['instra_link']?>">
+																					<label for="project_catagory">LinkedIn Link</label>
+																					<input type="text" class="form-control" name="instra_link" value="<?=$about_me_data['linkedin_link']?>">
 																				</div>
 
 																				<div class="form-group">
@@ -192,18 +185,6 @@ $about_me_data = $data_from_db->fetch_assoc();
 
                                 	</div>
                                 	<!-- item divide row end																		 -->
-
-                                </div>
-                                <!-- card box end -->
-                            </div> 
-                            <!-- main col end -->
-
-                        </div>
-                        <!-- row end -->
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
 
 
 

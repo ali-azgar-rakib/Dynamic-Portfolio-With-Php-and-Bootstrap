@@ -1,5 +1,13 @@
-<footer class="footer">
-                    2018 © Highdmin. - Coderthemes.com
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <footer class="footer">
+                    <?=date("Y")?> © Ali Azgar Rakib
                 </footer>
 
             </div>
@@ -45,8 +53,17 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+    $('#example').DataTable();
+} );
+        </script>
+
     </body>
 
 <!-- Mirrored from coderthemes.com/highdmin/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Apr 2019 06:51:50 GMT -->
 </html>
-    

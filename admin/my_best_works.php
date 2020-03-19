@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 
 			if(!empty($photo)){
 				// if not empty
-				if($_FILES['photo']['size']<5000000){
+				if($_FILES['photo']['size']<2000000){
 					// if photo in specific size
 					$accepted_extension_list = ['png','jpg','jpeg'];
 					if( in_array(strtolower($photo_ext),$accepted_extension_list) ){
@@ -55,12 +55,6 @@ if(isset($_POST['submit'])){
 
 
 ?>
-
-
-<!-- Start Page content -->
-	          <div class="row">
-	                      <div class="col-8 m-auto">
-	                          <div class="card-box">
 
 
 															<!-- card start -->
@@ -103,24 +97,6 @@ if(isset($_POST['submit'])){
 																	<!-- card end -->
 
 																			
-
-
-                                </div>
-                                <!-- card box end -->
-
-                            </div>
-                            <!-- main col end -->
-
-
-                        </div>
-												<!-- main row end -->
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-
 
 
 

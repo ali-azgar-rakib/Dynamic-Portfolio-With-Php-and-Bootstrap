@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
 
 	if(!empty($name) &&!empty($intro) && !empty($details) && !empty($fb_link) && !empty($twitter_link) && !empty($instra_link) && !empty($github_link) ){
 
-		$work_insert = $dbcon->query("UPDATE about_me SET name='$name',intro='$intro',details='$details',fb_link='$fb_link',twitter_link='$twitter_link',instra_link='$instra_link',github_link='$github_link' WHERE id=1");
+		$work_insert = $dbcon->query("UPDATE about_me SET name='$name',intro='$intro',details='$details',fb_link='$fb_link',twitter_link='$twitter_link',linkedin_link='$instra_link',github_link='$github_link' WHERE id=1");
 		if($work_insert){
 			$_SESSION['about_data_success'] = "Data updated successfully!";
 			header('location: about_me_main.php');

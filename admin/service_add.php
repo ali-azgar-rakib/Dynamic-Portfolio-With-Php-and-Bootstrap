@@ -14,9 +14,11 @@ if(isset($_POST['submit'])){
 	if(!empty($title) && !empty($some_text)){
 		$query = "INSERT INTO services (icon,title,some_text) VALUES('$icon','$title','$some_text')";
 			$service_insert = $dbcon->query($query);
+			if($service_insert){
 			$_SESSION['service_add'] = "Add successfully!";
 			header("location: services.php");
-			ob_end_flush();		
+			ob_end_flush();
+			}		
 		}
 		
 	}
@@ -30,52 +32,37 @@ if(isset($_POST['submit'])){
 
 
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
+ 	<div class="card text-dark mb-3" >
+	  <div class="card-header bg-success text-center "><h2>Services</h2></div>
+	  <div class="card-body">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Add Service</h4>
+					<form action="" method="post" >
+						<div class="form-group">
+							<label for="project_name">Service Name</label>
+							<input type="text" class="form-control" name="title">
+						</div>
 
-																			<form action="" method="post" >
-																				<div class="form-group">
-																					<label for="project_name">Service Name</label>
-																					<input type="text" class="form-control" name="title">
-																				</div>
+						<div class="form-group">
+							<label for="project_name">Service Icon</label>
+							<input type="text" class="form-control" name="icon">
+						</div>
 
-																				<div class="form-group">
-																					<label for="project_name">Service Icon</label>
-																					<input type="text" class="form-control" name="icon">
-																				</div>
+						<div class="form-group">
+							<label for="project_catagory">Add Details</label>
+							<textarea name="some_text" class="form-control"></textarea>
+						</div>
 
-																				<div class="form-group">
-																					<label for="project_catagory">Add Details</label>
-																					<input type="text" class="form-control" name="some_text">
-																				</div>
+						
+						<div class="form-group">
+							<input class="btn btn-block btn-success" type="submit" value="Add" name="submit">
+						</div>
 
-																				
-
-
-																				
-																				
-																				<div class="form-group">
-																					<input class="btn btn-block btn-success" type="submit" value="Add" name="submit">
-																				</div>
-
-																			</form>
+					</form>
+				</div>
+			</div>
 
 
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-
-
-
+                               
 <!-- ============ footer content =============== -->
 <?php 
     require_once "footer.php";

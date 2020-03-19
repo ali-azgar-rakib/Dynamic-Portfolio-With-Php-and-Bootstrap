@@ -15,24 +15,19 @@ if($message['status']==1){
 }
 
 ?>
-
 <!-- Start Page content -->
-                <div class="content">
-                    <div class="container-fluid">
 
-                        <div class="row">
-                            <div class="col-6 m-auto">
-                                <div class="card-box">
-                                    <h4 class="header-title mb-4">Message</h4>
 
-																			<?=$message['message']?>
+<div class="card text-dark mb-3">
 
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- container -->
+    <div class="card-header bg-success text-center "><h3>Message</h3></div>
 
-                </div> <!-- content -->
+          <div class="card-body text-center">
+    
+                <?=$message['message']?>
+            </div>
+        </div>
+
 
 
 

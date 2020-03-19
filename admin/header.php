@@ -13,6 +13,10 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+        
+
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
@@ -35,23 +39,12 @@
 
                 <div class="slimscroll-menu" id="remove-scroll">
 
-                    <!-- LOGO -->
-                    <!-- <div class="topbar-left">
-                        <a href="index.php" class="logo">
-                            <span>
-                                <img src="assets/images/logo.png" alt="" height="22">
-                            </span>
-                            <i>
-                                <img src="assets/images/logo_sm.png" alt="" height="28">
-                            </i>
-                        </a>
-                    </div> -->
-
+                   
                     <!-- User box -->
                     <div class="user-box">
                         <div class="user-img">
-                            
-                            <!-- php code for dynamic profile pic -->
+
+                    <!-- php code for dynamic profile pic -->
                 <!-- I am using photo from db beceuse it will work fine if we change photo after login -->
 
                 <?php
@@ -62,7 +55,7 @@
 
                             <img src="image/users/<?=$photo_from_db['photo']?>" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                         </div>
-                        <h5><a href="#"><?= $_SESSION['user_name'] ?></a> </h5>
+                        <h5><a href="#"><?= $_SESSION['user_name']?></a> </h5>
                         <p class="text-muted"><?=$_SESSION['user_email']?></p>
                     </div>
 
@@ -90,18 +83,18 @@
                                     </span> 
                                     <span> Users </span> 
                                 </a>
-                                
                             </li>
 
                             <li>
-                                <a href="about_me_main.php">
-                                    <i class="far fa-address-card"></i>  <span> About me </span>
-                                </a>
+                                <a href="javascript: void(0);"><i class="far fa-address-card"></i>  <span> About me </span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="about_me_main.php">About Me</a></li>
+                                    <li><a href="about_me.php">About me Update</a></li>
+                                </ul>
                             </li>
 
                             <li>
-                                <a href="education.php">
-                                    <i class="fas fa-book-reader"></i> 
+                                <a href="javascript: void(0);"><i class="fas fa-book-reader"></i> 
                                     <span class="badge badge-danger badge-pill float-right">
                                         <?php
                                         $education_result = $dbcon->query("SELECT COUNT(*) AS total_field FROM education_informations");
@@ -110,13 +103,15 @@
 
                                         ?>
                                     </span>  
-                                <span> Education </span>
-                                </a>
+                                <span> Education </span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="education.php">Education</a></li>
+                                    <li><a href="education_edit.php">Add Education</a></li>
+                                </ul>
                             </li>
 
                             <li>
-                                <a href="services.php">
-                                    <i class="fas fa-wrench"></i>
+                                <a href="javascript: void(0);"><i class="fas fa-wrench"></i>
                                     <span class="badge badge-danger badge-pill float-right">
                                         <?php
                                         $services_result = $dbcon->query("SELECT COUNT(*) AS total_field FROM services");
@@ -125,19 +120,23 @@
 
                                         ?>
                                     </span>  
-                                    <span> Services </span>
-                                </a>
+                                    <span> Services </span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="services.php">Services</a></li>
+                                    <li><a href="service_add.php">Add Service</a></li>
+                                </ul>
                             </li>
 
                             <li>
-                                <a href="contact_information.php">
-                                    <i class="fas fa-envelope-square"></i> <span> Contact Information</span>
-                                </a>
+                                <a href="javascript: void(0);"><i class="fas fa-envelope-square"></i> <span> Contact Information</span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="contact_information.php">Contact Information</a></li>
+                                    <li><a href="contact_information_change.php">Change Contact Information</a></li>
+                                </ul>
                             </li>
 
-                             <li>
-                                <a href="all_testimonials.php">
-                                    <i class="fas fa-comments"></i>
+                            <li>
+                                <a href="javascript: void(0);"><i class="fas fa-comments"></i>
                                     <span class="badge badge-danger badge-pill float-right">
                                         <?php
                                         $testimonial_result = $dbcon->query("SELECT COUNT(*) AS total_field FROM testimonials");
@@ -146,19 +145,23 @@
 
                                         ?>
                                     </span> 
-                                    <span> Testimonials</span>
-                                </a>
+                                    <span> Testimonials</span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="all_testimonials.php">Testimonials</a></li>
+                                    <li><a href="testimonials.php">Add Testimonials</a></li>
+                                </ul>
                             </li>
 
-                             <li>
-                                <a href="statistics.php">
-                                    <i class="fas fa-print"></i><span> Statistics</span>
-                                </a>
+                            <li>
+                                <a href="javascript: void(0);"><i class="fas fa-print"></i><span> Statistics</span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="statistics.php">Statistics</a></li>
+                                    <li><a href="statistics_edit.php">Update Statistics</a></li>
+                                </ul>
                             </li>
 
-                             <li>
-                                <a href="best_works.php">
-                                    <i class="fi-air-play"></i>
+                            <li>
+                                <a href="javascript: void(0);"><i class="fi-air-play"></i>
                                     <span class="badge badge-danger badge-pill float-right">
                                         <?php
                                         $best_works_result = $dbcon->query("SELECT COUNT(*) AS total_field FROM my_best_works");
@@ -167,11 +170,14 @@
 
                                         ?>
                                     </span> 
-                                    <span> My Best Works</span>
-                                </a>
+                                    <span> My Best Works</span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="best_works.php">My Best Works</a></li>
+                                    <li><a href="my_best_works.php">Add Work</a></li>
+                                </ul>
                             </li>
 
-                             <li>
+                            <li>
                                 <a href="all_guest_message.php">
                                     <i class="fas fa-users-cog"></i>
                                     <span class="badge badge-danger badge-pill float-right">
@@ -186,9 +192,8 @@
                                 </a>
                             </li>
 
-                             <li>
-                                <a href="logo.php">
-                                    <i class="fas fa-lightbulb"></i>
+                            <li>
+                                <a href="javascript: void(0);"><i class="fas fa-lightbulb"></i>
 
                                     <span class="badge badge-danger badge-pill float-right">
                                         <?php
@@ -199,11 +204,13 @@
                                         ?>
                                     </span>
 
-                                    <span> logo</span>
-                                </a>
+                                    <span> logo</span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="logo.php">Logo</a></li>
+                                    <li><a href="add_logo.php">Add Logo</a></li>
+                                </ul>
                             </li>
 
-                            
                         </ul>
 
                     </div>
@@ -250,10 +257,7 @@
                                         <i class="fi-head"></i> <span>My Account</span>
                                     </a>
 
-                                    
-
-                                    
-                                   
+                               
                                     <!-- item-->
                                     <a href="logout.php" class="dropdown-item notify-item">
                                         <i class="fi-power"></i> <span>Logout</span>
@@ -271,12 +275,12 @@
                                 </button>
                             </li>
                             <li>
-                                <div class="page-title-box">
-                                    <h4 class="page-title">Dashboard </h4>
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active">Welcome to Kufa admin panel !</li>
-                                    </ol>
-                                </div>
+                                <h4 class="page-title-main"><?=$title?></h4>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="../index.php">Kufa</a></li>
+                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item active"><?=$title?></li>
+                                </ol>
                             </li>
 
                         </ul>
@@ -285,3 +289,11 @@
 
                 </div>
                 <!-- Top Bar End -->
+
+                                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
