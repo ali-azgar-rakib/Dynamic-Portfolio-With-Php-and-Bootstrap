@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2020 at 02:21 PM
+-- Generation Time: Mar 19, 2020 at 04:24 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -45,7 +45,7 @@ CREATE TABLE `about_me` (
 --
 
 INSERT INTO `about_me` (`id`, `name`, `intro`, `details`, `fb_link`, `twitter_link`, `linkedin_link`, `github_link`, `photo`) VALUES
-(1, 'Ali Azgar Rakib', 'I am Rakib . I am Web Developer and I have no professional experience  !!', 'I am a hardworking and ambitious individual with a great passion for computer programming. I am currently in my eighth semester (industrial training) of studying Diploma in Computer Engineering at Munshiganj Polytechnic Institute. I am good at programming. I have a good knowledge about HTML, CSS, Bootstrap  PHP, MySQL. Give me the opportunity to spend my skills on the welfare of your company', 'https://www.facebook.com/crrakib55', 'https://twitter.com/crrakib5', 'https://www.linkedin.com/in/rakib5/', 'https://github.com/crrakib5', '1.png');
+(1, 'Ali Azgar Rakib', 'I am Rakib . I am a Web Developer . I know HTML, CSS, Bootstrap, jQuery,Php and Laravel.', 'I am a hardworking and ambitious individual with a great passion for computer programming. I am currently in my eighth semester (industrial training) of studying Diploma in Computer Engineering at Munshiganj Polytechnic Institute. I am good at programming. I have a good knowledge about HTML, CSS, Bootstrap  PHP, MySQL. Give me the opportunity to spend my skills on the welfare of your company', 'https://www.facebook.com/crrakib55', 'https://twitter.com/crrakib5', 'https://www.linkedin.com/in/rakib5/', 'https://github.com/crrakib5', '1.png');
 
 -- --------------------------------------------------------
 

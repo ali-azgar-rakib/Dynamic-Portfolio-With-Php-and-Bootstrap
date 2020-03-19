@@ -32,12 +32,12 @@ $about_me_data = $data_from_db->fetch_assoc();
 
 																				<div class="form-group">
 																					<label for="project_catagory">Intro</label>
-																					<input type="text" class="form-control" name="intro" value="<?=$about_me_data['intro']?>">
+																					<textarea name="intro" class="form-control"><?=$about_me_data['intro']?></textarea>
 																				</div>
 
 																				<div class="form-group">
 																					<label for="project_catagory">Details about me</label>
-																					<input type="text" class="form-control" name="details" value="<?=$about_me_data['details']?>">
+																					<textarea name="details" class="form-control"><?=$about_me_data['details']?></textarea>
 																				</div>
 
 																				<div class="form-group">
