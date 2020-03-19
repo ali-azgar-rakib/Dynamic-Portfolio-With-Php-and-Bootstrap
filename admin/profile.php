@@ -23,7 +23,7 @@ $id = $row['id'];
                                 			<!-- first col -->
 
 																		<div class="card text-dark mb-3" >
-																		  <div class="card-header bg-success text-center"><h2>Education</h2></div>
+																		  <div class="card-header bg-success text-center"><h2>Profile</h2></div>
 																		  <div class="card-body">
 																			<!-- table start here -->
 																				<table class="table table-bordered table-striped text-center mx-auto" >
